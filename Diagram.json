@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -13.4, "left": -36.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "ledVerde", "top": -130.8, "left": -126.2, "rotate": 0, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledAmarelo", "top": -130.8, "left": -79.8, "rotate": 0, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "ledVermelho", "top": -130.8, "left": -33.4, "rotate": 0, "attrs": { "color": "red" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": -138.4, "left": 47.8, "rotate": 0, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": -136.8, "left": 109.4, "rotate": 0, "attrs": {} }
+  ],
+  "connections": [
+    [ "ledVerde:C", "uno:GND.1", "black", [ "v0" ] ],
+    [ "ledVerde:A", "uno:2", "green", [ "v0" ] ],
+    [ "ledAmarelo:C", "uno:GND.1", "black", [ "v0" ] ],
+    [ "ledAmarelo:A", "uno:3", "yellow", [ "v0" ] ],
+    [ "ledVermelho:C", "uno:GND.1", "black", [ "v0" ] ],
+    [ "ledVermelho:A", "uno:4", "red", [ "v0" ] ],
+    [ "buzzer:1", "uno:5", "gray", [ "v0" ] ],
+    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ],
+    [ "ldr:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "ldr:GND", "uno:GND.3", "black", [ "v0" ] ],
+    [ "ldr:AO", "uno:A0", "blue", [ "v0" ] ]
+  ]
+}
