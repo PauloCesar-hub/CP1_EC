@@ -44,3 +44,8 @@ Esse sistema pode ser utilizado em vinícolas, adegas ou ambientes de armazename
 
 Conclusão:
 O sistema proposto é simples, eficaz e de baixo custo, utilizando o Arduino como controlador principal. Ele pode ser expandido futuramente com sensores de temperatura e umidade para um controle ambiental ainda mais completo.
+
+
+
+
+Projeto feito e construido no Wokwi.com
