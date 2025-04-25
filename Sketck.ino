@@ -1,12 +1,8 @@
+const int ledVerde = 7;
+const int ledAmarelo = 6;
+const int ledVermelho = 5;
 const int ldrPin = A0;
-const int ledVerde = 2;
-const int ledAmarelo = 3;
-const int ledVermelho = 4;
-const int buzzer = 5;
-
-
-const int LIMIAR_OK = 800;     
-const int LIMIAR_ALERTA = 500; 
+const int buzzer = 9;
 
 void setup() {
   pinMode(ledVerde, OUTPUT);
@@ -17,20 +13,18 @@ void setup() {
 }
 
 void loop() {
-  int leitura = analogRead(ldrPin);
-  Serial.println(leitura);
+  int ldrValue = analogRead(ldrPin);
+  Serial.println(ldrValue);
 
-  if (leitura >= LIMIAR_OK) {
+  if (ldrValue > 800) {
     digitalWrite(ledVerde, HIGH);
     digitalWrite(ledAmarelo, LOW);
     digitalWrite(ledVermelho, LOW);
     digitalWrite(buzzer, LOW);
-  } else if (leitura >= LIMIAR_ALERTA) {
+  } else if (ldrValue > 400) {
     digitalWrite(ledVerde, LOW);
     digitalWrite(ledAmarelo, HIGH);
     digitalWrite(ledVermelho, LOW);
-    digitalWrite(buzzer, HIGH);
-    delay(3000);
     digitalWrite(buzzer, LOW);
   } else {
     digitalWrite(ledVerde, LOW);
@@ -39,5 +33,5 @@ void loop() {
     digitalWrite(buzzer, HIGH);
   }
 
-  delay(1000);
+  delay(500);
 }
