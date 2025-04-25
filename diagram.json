@@ -3,148 +3,57 @@
   "author": "PaulinhoDev",
   "editor": "wokwi",
   "parts": [
-    {
-      "type": "wokwi-arduino-uno",
-      "id": "uno",
-      "top": -13.4,
-      "left": -36.6,
-      "attrs": {}
-    },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 300, "left": 150, "attrs": {} },
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -12.6, "left": 12.4, "attrs": {} },
     {
       "type": "wokwi-led",
       "id": "ledVerde",
-      "top": -130.8,
-      "left": -126.2,
-      "rotate": 0,
-      "attrs": {
-        "color": "green"
-      }
+      "top": -42.6,
+      "left": 72.4,
+      "attrs": { "color": "green" }
     },
     {
       "type": "wokwi-led",
       "id": "ledAmarelo",
-      "top": -130.8,
-      "left": -79.8,
-      "rotate": 0,
-      "attrs": {
-        "color": "yellow"
-      }
+      "top": -30,
+      "left": 110,
+      "attrs": { "color": "yellow" }
     },
     {
       "type": "wokwi-led",
       "id": "ledVermelho",
-      "top": -130.8,
-      "left": -33.4,
-      "rotate": 0,
-      "attrs": {
-        "color": "red"
-      }
+      "top": -30,
+      "left": 160,
+      "attrs": { "color": "red" }
     },
-    {
-      "type": "wokwi-buzzer",
-      "id": "buzzer",
-      "top": -138.4,
-      "left": 47.8,
-      "rotate": 0,
-      "attrs": {}
-    },
-    {
-      "type": "wokwi-photoresistor-sensor",
-      "id": "ldr",
-      "top": -136.8,
-      "left": 109.4,
-      "rotate": 0,
-      "attrs": {}
-    }
+    { "type": "wokwi-resistor", "id": "r1", "top": 10, "left": 60, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 10, "left": 110, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 10, "left": 160, "attrs": { "value": "220" } },
+    { "type": "wokwi-photoresistor", "id": "ldr", "top": -30, "left": 220, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r4", "top": 10, "left": 220, "attrs": { "value": "10k" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 204, "left": 193.8, "attrs": {} }
   ],
   "connections": [
-    [
-      "ledVerde:C",
-      "uno:GND.1",
-      "black",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ledVerde:A",
-      "uno:2",
-      "green",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ledAmarelo:C",
-      "uno:GND.1",
-      "black",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ledAmarelo:A",
-      "uno:3",
-      "yellow",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ledVermelho:C",
-      "uno:GND.1",
-      "black",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ledVermelho:A",
-      "uno:4",
-      "red",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "buzzer:1",
-      "uno:5",
-      "gray",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "buzzer:2",
-      "uno:GND.2",
-      "black",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ldr:VCC",
-      "uno:5V",
-      "red",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ldr:GND",
-      "uno:GND.3",
-      "black",
-      [
-        "v0"
-      ]
-    ],
-    [
-      "ldr:AO",
-      "uno:A0",
-      "blue",
-      [
-        "v0"
-      ]
-    ]
-  ]
+    [ "uno:GND.2", "bb1:bn.1", "black", [] ],
+    [ "uno:5V", "bb1:bp.1", "red", [] ],
+    [ "ledVerde:C", "bb1:bn.3", "black", [] ],
+    [ "ledVerde:A", "r1:1", "green", [] ],
+    [ "r1:2", "uno:7", "green", [] ],
+    [ "ledAmarelo:C", "bb1:bn.8", "black", [] ],
+    [ "ledAmarelo:A", "r2:1", "yellow", [] ],
+    [ "r2:2", "uno:6", "yellow", [] ],
+    [ "ledVermelho:C", "bb1:bn.13", "black", [] ],
+    [ "ledVermelho:A", "r3:1", "red", [] ],
+    [ "r3:2", "uno:5", "red", [] ],
+    [ "ldr:1", "bb1:bp.20", "red", [] ],
+    [ "ldr:2", "bb1:20b", "blue", [] ],
+    [ "r4:1", "bb1:20a", "gray", [] ],
+    [ "r4:2", "bb1:bn.20", "black", [] ],
+    [ "bb1:20b", "uno:A0", "blue", [] ],
+    [ "buzzer:1", "uno:9", "purple", [] ],
+    [ "buzzer:2", "bb1:bn.25", "black", [] ],
+    [ "ledVerde:A", "bb1:tp.5", "", [ "$bb" ] ],
+    [ "ledVerde:C", "bb1:tp.4", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
 }
